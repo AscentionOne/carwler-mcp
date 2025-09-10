@@ -1,0 +1,52 @@
+{
+  "compilerOptions": {
+    // Target and Module System for Node.js
+    "target": "ES2016",                          // Modern JS features, widely supported in Node.js
+    "module": "CommonJS",                        // Node.js standard module system
+    "lib": ["ES2016"],                           // Standard library for target version
+    
+    // File Layout
+    "rootDir": "./src",                          // Source TypeScript files location
+    "outDir": "./dist",                          // Compiled JavaScript output directory
+    
+    // Module Resolution for Node.js
+    "moduleResolution": "node",                  // Node.js module resolution strategy
+    "esModuleInterop": true,                     // Better CommonJS/ES module compatibility
+    "allowSyntheticDefaultImports": true,        // Cleaner import syntax
+    "resolveJsonModule": true,                   // Allow importing JSON files
+    
+    // Type Checking (Strict Mode)
+    "strict": true,                              // Enable all strict type checking
+    "noImplicitAny": true,                       // Error on expressions with 'any' type
+    "strictNullChecks": true,                    // Include null/undefined in type checking
+    "strictFunctionTypes": true,                 // Check function types carefully
+    "noImplicitReturns": true,                   // Error when not all code paths return
+    
+    // Additional Type Safety
+    "noUncheckedIndexedAccess": true,            // Add undefined to index signature results
+    "exactOptionalPropertyTypes": true,          // Stricter optional property handling
+    "noFallthroughCasesInSwitch": true,          // Error on fallthrough in switch statements
+    
+    // Development Experience
+    "sourceMap": true,                           // Generate sourcemaps for debugging
+    "declaration": true,                         // Generate .d.ts files for library usage
+    "declarationMap": true,                      // Enable sourcemaps for .d.ts files
+    "skipLibCheck": true,                        // Skip type checking of declaration files
+    "forceConsistentCasingInFileNames": true,    // Prevent casing issues across platforms
+    
+    // Node.js Specific
+    "types": ["node"],                           // Include Node.js type definitions
+    
+    // Build Performance
+    "incremental": true,                         // Enable incremental compilation
+    "tsBuildInfoFile": "./dist/.tsbuildinfo"     // Store incremental build info
+  },
+  "include": [
+    "src/**/*.ts"                                // Include all TypeScript files in src
+  ],
+  "exclude": [
+    "node_modules",                              // Exclude dependencies
+    "dist",                                      // Exclude build output
+    "**/*.js"                                    // Exclude JavaScript files during migration
+  ]
+}
