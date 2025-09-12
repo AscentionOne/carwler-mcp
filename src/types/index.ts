@@ -122,6 +122,97 @@ export interface TestResult {
 export type TypeGuard<T> = (value: unknown) => value is T;
 
 /**
+ * v0.7.x Batch Processing Configuration Options
+ * 
+ * Complete TypeScript interface for all native Crawl4AI v0.7.x batch configuration options.
+ * Maps directly to the Python configuration parameters we implemented in scrape.py.
+ */
+export interface BatchCrawlOptions {
+  /** Cache mode strategy */
+  cache_mode?: 'ENABLED' | 'BYPASS' | 'READ_ONLY' | 'WRITE_ONLY';
+  
+  /** Enable streaming mode for real-time result processing */
+  stream_mode?: boolean;
+  
+  /** Session ID for browser session reuse */
+  session_id?: string;
+  
+  /** Memory management threshold percentage (0-100) */
+  memory_threshold?: number;
+  
+  /** Memory check interval in seconds */
+  check_interval?: number;
+  
+  /** Maximum concurrent browser sessions */
+  max_sessions?: number;
+  
+  /** Memory wait timeout in seconds */
+  memory_wait_timeout?: number;
+  
+  /** Enable rate limiting */
+  enable_rate_limiting?: boolean;
+  
+  /** Rate limiter base delay range [min, max] seconds */
+  base_delay?: [number, number];
+  
+  /** Maximum delay for rate limiting in seconds */
+  max_delay?: number;
+  
+  /** Maximum retry attempts */
+  max_retries?: number;
+  
+  /** Maximum visible rows in monitor */
+  max_visible_rows?: number;
+  
+  /** Crawler strategy: browser or HTTP-only */
+  strategy?: 'browser' | 'http';
+  
+  /** Maximum connections for HTTP strategy */
+  max_connections?: number;
+  
+  /** Run browser in headless mode */
+  headless?: boolean;
+  
+  /** Use persistent browser sessions */
+  persistent_browser?: boolean;
+  
+  /** User data directory for persistent browser */
+  user_data_dir?: string;
+}
+
+/**
+ * Batch scraping result for multiple URLs
+ */
+export interface BatchScrapeResult {
+  /** Array of individual scrape results */
+  results: ScrapeResult[];
+  
+  /** Overall success rate */
+  success_rate: number;
+  
+  /** Total processing time in milliseconds */
+  total_time: number;
+  
+  /** Number of successful crawls */
+  successful_count: number;
+  
+  /** Number of failed crawls */
+  failed_count: number;
+  
+  /** Memory and performance metrics */
+  performance_metrics?: {
+    peak_memory_mb?: number;
+    avg_response_time_ms?: number;
+    concurrent_sessions_used?: number;
+  };
+}
+
+/**
+ * Configuration presets for different types of websites
+ */
+export type CrawlPreset = 'DOCUMENTATION_SITES' | 'NEWS_SITES' | 'API_DOCS' | 'PERFORMANCE_TEST';
+
+/**
  * Utility type for making all properties of an interface required
  * 
  * Learning: TypeScript utility types provide powerful ways to

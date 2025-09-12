@@ -31,8 +31,9 @@ src/
 - Linux: `~/.claude/crawled_docs/`
 
 ## Development Environment
-- **Current Development**: Ubuntu 20.04.6 LTS (WSL2)
+- **Current Development**: Ubuntu 20.04.6 LST (WSL2)
 - **Development Tools**: Node.js + TypeScript, Python (crawl4ai)
+- **Python Version**: Always use `python3.11` (WSL2 has multiple Python versions)
 
 ## Development Rules
 - **Commits**: Professional messages without Claude references
@@ -55,6 +56,31 @@ src/
 ## Progress Tracking
 Read and update TASKS.md checkbox status when completing work. Mark tasks as ✅ when finished.
 
+## Documentation Management Rules
+
+### File Purposes & Context Efficiency
+- **SESSION_SUMMARY.md**: Current session progress + immediate next steps (keep <100 lines)
+- **IMPLEMENTATION_PLAN.md**: Project architecture + current capabilities (update incrementally)  
+- **TASKS.md**: Pure checklist progress (mark ✅/❌ only)
+
+### Update Strategy (Minimize Context Usage)
+1. **During Session**: Update only SESSION_SUMMARY.md with current progress
+2. **Session End**: 
+   - Consolidate completed work into IMPLEMENTATION_PLAN.md
+   - Update TASKS.md checkboxes
+   - Clean SESSION_SUMMARY.md for next session (keep <100 lines)
+
+### Context Window Optimization
+- **Session Start**: Read only SESSION_SUMMARY.md (not all 3 files) - saves 20-25k tokens
+- **Architecture Details**: Read IMPLEMENTATION_PLAN.md only when specific technical details needed
+- **Task Status**: Read TASKS.md only when reviewing overall project progress
+- **Redundancy Prevention**: No code blocks or implementation details in SESSION_SUMMARY.md
+
+### Documentation Content Rules
+- **SESSION_SUMMARY.md**: Session-focused, no technical implementation details
+- **IMPLEMENTATION_PLAN.md**: Architecture-focused, no session-specific progress
+- **TASKS.md**: Checklist-focused, no implementation details or session history
+
 ## Reference Documents
 - `PRD.md`: Complete requirements and user stories
 - `IMPLEMENTATION_PLAN.md`: Technical architecture and phases
@@ -73,5 +99,5 @@ This project follows a **learn-by-doing methodology**. When implementing feature
 **Always provide educational context** for design decisions, coding patterns, and architectural choices to support hands-on learning.
 
 ## Current Focus
-Building Phase 1 foundation: project setup, TypeScript config, MCP integration, cross-platform utilities.
+Phase 2A Parallel Processing Enhancement: Completed v0.7.x API compliance and TypeScript batch processing integration. Next: CLI enhancement and testing.
 - commit with professional commit message and to not include claude message
