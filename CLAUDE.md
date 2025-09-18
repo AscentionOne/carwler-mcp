@@ -101,3 +101,4 @@ This project follows a **learn-by-doing methodology**. When implementing feature
 ## Current Focus
 Phase 2A Parallel Processing Enhancement: Completed v0.7.x API compliance and TypeScript batch processing integration. Next: CLI enhancement and testing.
 - commit with professional commit message and to not include claude message
+- when using context7 to search for crawl4ai always search on unclecode/crawl4ai
