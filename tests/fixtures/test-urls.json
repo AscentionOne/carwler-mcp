@@ -1,0 +1,37 @@
+{
+  "description": "Test URLs for batch processing validation - organized by preset type",
+  "documentation_sites": [
+    "https://docs.python.org/3/library/json.html",
+    "https://nodejs.org/docs/latest/api/fs.html",
+    "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array"
+  ],
+  "news_blog_sites": [
+    "https://httpbin.org/html",
+    "https://httpbin.org/json",
+    "https://example.com"
+  ],
+  "api_documentation": [
+    "https://httpbin.org/",
+    "https://jsonplaceholder.typicode.com/",
+    "https://api.github.com"
+  ],
+  "fast_sites_http_strategy": [
+    "https://httpbin.org/get",
+    "https://httpbin.org/uuid",
+    "https://httpbin.org/robots.txt"
+  ],
+  "additional_test_sites": [
+    "https://www.iana.org/",
+    "https://tools.ietf.org/rfc/rfc7231.txt",
+    "https://www.w3.org/"
+  ],
+  "edge_cases": [
+    "https://httpbin.org/status/200",
+    "https://httpbin.org/cache",
+    "https://httpbin.org/etag/test"
+  ],
+  "different_structures": [
+    "https://httpbin.org/forms/post",
+    "https://httpbin.org/xml"
+  ]
+}

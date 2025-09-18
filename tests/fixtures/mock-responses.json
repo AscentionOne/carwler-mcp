@@ -1,0 +1,60 @@
+{
+  "description": "Mock HTTP responses for testing",
+  "simple_html": {
+    "status_code": 200,
+    "html": "<html><head><title>Test Page</title></head><body><h1>Test Content</h1><p>This is test content.</p></body></html>",
+    "markdown": "# Test Content\n\nThis is test content.",
+    "metadata": {
+      "title": "Test Page",
+      "description": "Test page description"
+    },
+    "links": [],
+    "media": []
+  },
+  "json_api_response": {
+    "status_code": 200,
+    "html": "{\"message\": \"Hello World\", \"status\": \"success\"}",
+    "markdown": "```json\n{\n  \"message\": \"Hello World\",\n  \"status\": \"success\"\n}\n```",
+    "metadata": {
+      "title": "API Response",
+      "description": "JSON API response"
+    },
+    "links": [],
+    "media": []
+  },
+  "documentation_page": {
+    "status_code": 200,
+    "html": "<html><head><title>API Documentation</title></head><body><h1>API Reference</h1><h2>Methods</h2><ul><li>GET /api/users</li><li>POST /api/users</li></ul></body></html>",
+    "markdown": "# API Reference\n\n## Methods\n\n- GET /api/users\n- POST /api/users",
+    "metadata": {
+      "title": "API Documentation",
+      "description": "Complete API reference guide"
+    },
+    "links": ["/api/users"],
+    "media": []
+  },
+  "error_responses": {
+    "404": {
+      "status_code": 404,
+      "html": "<html><head><title>Not Found</title></head><body><h1>404 - Page Not Found</h1></body></html>",
+      "markdown": "# 404 - Page Not Found",
+      "metadata": {
+        "title": "Not Found",
+        "description": "Page not found"
+      },
+      "links": [],
+      "media": []
+    },
+    "500": {
+      "status_code": 500,
+      "html": "<html><head><title>Server Error</title></head><body><h1>500 - Internal Server Error</h1></body></html>",
+      "markdown": "# 500 - Internal Server Error",
+      "metadata": {
+        "title": "Server Error",
+        "description": "Internal server error"
+      },
+      "links": [],
+      "media": []
+    }
+  }
+}

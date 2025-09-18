@@ -219,9 +219,6 @@ export class SimpleCrawler {
         // Cache configuration
         cache_mode: options.cache_mode || 'ENABLED',
         
-        // Processing modes
-        stream_mode: options.stream_mode || false,
-        
         // Session management
         session_id: options.session_id || `batch_${Date.now()}`,
         
@@ -330,11 +327,4 @@ export class SimpleCrawler {
     return this.batchScrapeUrls(urls, { ...options, strategy: 'http' });
   }
 
-  /**
-   * Convenience method for streaming batch crawling
-   * Processes results as they become available
-   */
-  async batchScrapeUrlsStreaming(urls: string[], options: Omit<BatchCrawlOptions, 'stream_mode'> = {}): Promise<BatchScrapeResult> {
-    return this.batchScrapeUrls(urls, { ...options, stream_mode: true });
-  }
 }

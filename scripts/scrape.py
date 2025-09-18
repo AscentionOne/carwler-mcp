@@ -21,7 +21,8 @@ logging.basicConfig(
 try:
     from crawl4ai import AsyncWebCrawler, BrowserConfig, CrawlerRunConfig, CacheMode
     from crawl4ai import MemoryAdaptiveDispatcher, CrawlerMonitor, DisplayMode
-    from crawl4ai import RateLimiter, AsyncHTTPCrawlerStrategy
+    from crawl4ai import RateLimiter
+    from crawl4ai.async_crawler_strategy import AsyncHTTPCrawlerStrategy
     import asyncio
 except ImportError as e:
     print(json.dumps({
@@ -41,8 +42,7 @@ async def batch_crawl_native(urls: list, config_options: dict):
     try:
         # Native configuration with all built-in options
         crawl_config = CrawlerRunConfig(
-            cache_mode=getattr(CacheMode, config_options.get('cache_mode', 'ENABLED')),
-            stream=config_options.get('stream_mode', False)
+            cache_mode=getattr(CacheMode, config_options.get('cache_mode', 'ENABLED'))
         )
         
         # Add session_id if provided
@@ -60,10 +60,7 @@ async def batch_crawl_native(urls: list, config_options: dict):
                 max_delay=config_options.get('max_delay', 30.0),
                 max_retries=config_options.get('max_retries', 5)
             ) if config_options.get('enable_rate_limiting', True) else None,
-            monitor=CrawlerMonitor(
-                max_visible_rows=config_options.get('max_visible_rows', 15),
-                display_mode=DisplayMode.DETAILED  # v0.7.x standard
-            )
+            monitor=None  # Disable monitor UI for subprocess to keep stdout clean
         )
         
         # Native browser configuration with optional persistence

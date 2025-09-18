@@ -122,17 +122,17 @@ export interface TestResult {
 export type TypeGuard<T> = (value: unknown) => value is T;
 
 /**
- * v0.7.x Batch Processing Configuration Options
+ * v0.7.x Batch Processing Configuration Options for MCP Integration
  * 
  * Complete TypeScript interface for all native Crawl4AI v0.7.x batch configuration options.
  * Maps directly to the Python configuration parameters we implemented in scrape.py.
+ * 
+ * NOTE: Streaming mode removed as it's not suitable for MCP request-response patterns.
+ * Claude needs complete information to formulate responses.
  */
 export interface BatchCrawlOptions {
   /** Cache mode strategy */
   cache_mode?: 'ENABLED' | 'BYPASS' | 'READ_ONLY' | 'WRITE_ONLY';
-  
-  /** Enable streaming mode for real-time result processing */
-  stream_mode?: boolean;
   
   /** Session ID for browser session reuse */
   session_id?: string;
